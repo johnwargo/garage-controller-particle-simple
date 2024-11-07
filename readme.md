@@ -1,7 +1,5 @@
 # Garage Controller Particle Simple
 
-**Work In Progress**
-
 This repository contains the Arduino sketch for a simple garage door opener based on the [Particle Photon](https://store.particle.io/products/photon-2) platform. I built this years ago when I first discovered the Particle Platform and a version of this software has been running on a Particle device in my garage ever since.
 
 The project is really simple, it defines a single function `pushButton` that, when executed, turns a relay on for a half of a second (500ms) then turns it off.
