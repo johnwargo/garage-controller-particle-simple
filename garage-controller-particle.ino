@@ -25,33 +25,33 @@ void setup() {
      Serial.begin(9600);
      Serial.println("Device setup initializing...");
      
-    //======================================================
-    //Setup Digital Output Pins
-    //======================================================
+    //========================================================
+    // Setup the Digital Output Pins
+    //========================================================
     // Set the relay pin to output
     pinMode(relayPin, OUTPUT);
     // Set both LED pins to output
     pinMode(activityLED, OUTPUT);
     pinMode(powerLED, OUTPUT);
     
-    //======================================================
+    //========================================================
     // Turn the power LED on
     // it runs constantly so you can tell from a distance
     // if the board is on.
-    //======================================================
+    //========================================================
     Serial.println("Turning power LED on");
     digitalWrite(powerLED, HIGH);
     
-    //======================================================
-    // Define the external function call to push the button
-    //======================================================
-    Particle.function("pushButton", pushButton);
-    
+    //========================================================
+    // Define the external function call to trigger the relay
+    // This gets published to the particle cloud
+    //========================================================
+    Particle.function("pushButton", pushButton);    
 }
 
 void loop() {
-    //Nothing to do here, really.
-    //Unless we want to blink the onbord LED for some reason
+    // Nothing to do here, really.
+    // Unless we want to blink the onbord LED for some reason
 }
 
 //=================================================================
@@ -66,15 +66,15 @@ int pushButton(String param){
     //digitalWrite(powerLED, LOW);
     //==================================================    
     
-    //Turn the activity LED on, so we can tell it's working
+    // Turn the activity LED on, so we can tell it's working
     digitalWrite(activityLED, HIGH);
-    //Turn the relay on 
+    // Turn the relay on 
     digitalWrite(relayPin, HIGH);
-    //Wait half a second (or however long we determine we need to)
+    // Wait half a second
     delay(500);
-    //Turn the relay off
+    // Turn the relay off
     digitalWrite(relayPin, LOW);
-    //Turn the activity LED off
+    // Turn the activity LED off
     digitalWrite(activityLED, LOW);
 
     //==================================================
@@ -82,7 +82,7 @@ int pushButton(String param){
     //digitalWrite(powerLED, HIGH);
     //==================================================
    
-    //Have to return something, so return a zero (-1 means failure)
+    // Must return something, so return a zero (-1 means failure)
     return 0;
 }
 
