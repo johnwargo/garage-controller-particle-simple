@@ -6,13 +6,13 @@ The project is really simple, it defines a single function `pushButton` that, wh
 
 ```c
 int pushButton(String param){
-    //Turn the relay on 
+    // Turn the relay on 
     digitalWrite(relayPin, HIGH);
-    //Wait half a second
+    // Wait half a second
     delay(500);
-    //Turn the relay off
+    // Turn the relay off
     digitalWrite(relayPin, LOW);  
-    //must return something, so return a zero (-1 means failure)
+    // must return something, so return a zero (-1 means failure)
     return 0;
 }
 ```
